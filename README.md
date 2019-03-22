@@ -26,7 +26,7 @@ Da man für Samba die User bestimmen muss, welche Zugriff haben, brauch damm man
 
 
 Ich hatte zuerst versucht ein Passwort File zu benutzen und so das Passwort zu setzen, dies war leider nicht erfolgreich.
-Schlussendlich passte ich mein Share so an, damit Gast User Zugriff haben und die Authentifizierung somit wegfällt.
+
 ![Image](images/share_guest.JPG)
 
 
