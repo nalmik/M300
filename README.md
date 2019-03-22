@@ -1,16 +1,15 @@
 # M300
 ## LB1
 Für die LB1 musste man ein Service auswählen und das Vagrantfile so anpassen, dass man mit vagrant up den laufenden Dienst hat.
-Ich wählte dafür den Samba Dienst, damit kann man über verschiedene OS auf dem Share Zugreifen.
+Ich wählte dafür den Samba als Dienst, damit kann man über verschiedene OS auf dem Share Zugreifen.
 > Note: Vagrant Version 2.2.3 und VirtualBox Version 5.2 wurden dabei benutzt
 
-Ziel ist: mit dem Vagrantfile und vagrant up bei der VM Samba läuft und man vom Host zugreifen kann.
 Samba einzurichten ist eigentlich nicht schwer. Ich bin dabei jedoch auf folgende Herausforderungen gestossen:
  * Password setzten für Vagrant User
  * Sich mit dem Share zu verbinden 
 
-### Sicherheitaspekte
-Damit unser Server nicht leicht angreifbar ist, habe ich mit ufw (Uncomplicated Firewall) einige Regeln hinzufügt.
+### Sicherheitsaspekte
+Damit der Server nicht leicht angreifbar ist, habe ich mit ufw (Uncomplicated Firewall) einige Regeln hinzufügt.
 Da ich bei meiner Lösung kein Port Forwarding sondern bridged und eine Statische IP definiert habe, braucht man da zusätzlich eine Regel.
 
 ### Troubleshooting
@@ -25,13 +24,19 @@ Da man für Samba die User bestimmen muss, welche Zugriff haben, brauch damm man
 
 Ich hatte zuerst versucht ein Passwort File zu benutzen und so das Passwort zu setzen, dies war leider nicht erfolgreich.
 Schlussendlich passte ich mein Share so an, damit Gast User Zugriff haben und die Authentifizierung somit wegfällt.
+![Image](images/share_guest.JPG)
+
 Das heisst ich muss die Berechtigung des Ordners, der geteilt wird, anpassen damit jeder Zugriff dort hat.
 
 #### Zugriff zum Share
 Das zweite Problem, welches ich auch nicht lösen konnte, ist der Zugriff selber zum Share.
 
 Zuerst hatte ich Port Forwarding benutzt, als das nicht ging wurde mir der Tipp gegeben es mit bridge zu versuchen.
-Dieser Versuch war leider auch nicht erfolgreich. Als nächstes sah ich auf einer Webseite, dass wenn man mehrere Netzwerkadapter hat, es beim smb.conf definieren kann wo der Zugriff überhaupt stattfindet und auch wer darauf überall Zugriff hat.
+Dieser Versuch war leider auch nicht erfolgreich.
+Als nächstes sah ich auf einer Webseite, dass wenn man mehrere Netzwerkadapter hat, es beim smb.conf definieren kann wo der Zugriff überhaupt stattfindet und auch wer darauf überall Zugriff hat.
+
+
+![Image](images/share_access.JPG)
 
 In der Firewall erstellte ich zum Schluss Regeln, welche Zugriff auf den Ports 139 und 445 zulässt.
 
