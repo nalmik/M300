@@ -8,11 +8,17 @@ Samba einzurichten ist eigentlich nicht schwer. Ich bin dabei jedoch auf folgend
  * Password setzten für Vagrant User
  * Sich mit dem Share zu verbinden 
 
+Das Vagrantfile kann man in mein Repository beim Unterordner files finden.
+Hier wäre der direkte [Link][3]
+
 ### Sicherheitsaspekte
 Damit der Server nicht leicht angreifbar ist, habe ich mit ufw (Uncomplicated Firewall) einige Regeln hinzufügt.
-Da ich bei meiner Lösung kein Port Forwarding sondern bridged und eine Statische IP definiert habe, braucht man da zusätzlich eine Regel. Folgend sieht man was ich alles gesetzt habe.
+Folgend sieht man was ich alles gesetzt habe.
 
 ![Image](images/ufw.JPG)
+
+Standardmässig ist incoming und outgoing auf deny. Ich änderte jedoch default outgoing auf allow, da bei Samba eventuell mehrere Ports exposed werden müssen, als die zwei welche ich herausgesucht habe, habe ich diese Regel erstellt.
+Da ich bei meiner Lösung kein Port Forwarding sondern bridged und eine Statische IP definiert habe, braucht man da zusätzlich eine Regel.
 
 ### Troubleshooting
 #### smbpasswd
@@ -46,7 +52,7 @@ In der Firewall erstellte ich zum Schluss Regeln, welche Zugriff auf den Ports 1
 ### Fazit
 Leider läuft der Dienst nicht, doch ich habe trotzdem einiges lernen können. Zum Beispiel weiss ich jetzt wie das Synchronisieren eines Ordners auf dem Host mit der vm in Vagrant funktioniert (obwohl ich das schlussendlich nicht mal gebraucht habe). Auch erfuhr ich wie wichtig es ist, wo man im Vagrantfile die Netzwerkeinstellungen anpasst, ich hatte dies eben am falschen Ort geschrieben und mich die ganze Zeit gewundert wieso es nicht funktionierte.
 
-Für das nächste Mal hätte ich vielleicht mehr Zeit investieren können im Troubleshooting, denn ich bin mir sicher das ganze kann funktionieren.
+Für das nächste Mal hätte ich vielleicht mehr Zeit investieren können im Troubleshooting, denn ich bin mir sicher das ganze kann funktionieren. In Sache Sicherheit kann man da sicher noch einiges verbessern, wie ein Samba User und ein Reverse Proxy.
 
 Was ich aus dieser LB mitnehmen konnte ist insgesamt recht vieles, denn das ist mein erstes Mal mit Vagrant zu arbeiten und Markdown zu benutzen.
 
@@ -62,6 +68,7 @@ Quellen:
 [1]: https://tutorials.ubuntu.com/tutorial/install-and-configure-samba#0
 
 [2]: https://help.ubuntu.com/community/Samba/SambaServerGuide?_ga=2.217325718.1849541421.1553230786-543561681.1550828100
-[3]: https://www.thomas-krenn.com/de/wiki/Einfache_Samba_Freigabe_unter_Debian
+
+[3]: https://github.com/nalmik/M300/blob/master/files/Vagrantfile
 
 [4]: https://www.vagrantup.com/docs/networking/public_network.html
