@@ -30,6 +30,7 @@ end
 config.vm.provision "shell", inline: <<-SHELL
   apt-get update
   sudo apt-get install -y samba
+  #Passwort vom SambaUser ändern --> funktioniert leider nicht
   #sudo useradd -m SambaUser
   #sudo chpasswd -e < /home/vagrant/hostdata/password.txt
   sudo mkdir /media/Share
