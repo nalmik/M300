@@ -20,7 +20,7 @@ Zuerst hatte ich einige Probleme mit diesem Befehl gehabt:
     
     sudo smbpasswd -a user 
 
-Da man für Samba die User bestimmen muss, welche Zugriff haben, brauch damm man auch ein Passwort für sie zu setzen. Das macht man mit smbpasswd und das Passwort sollte dann zwei Mal eingeben werden, was eher schwierig zu realisieren ist mit ein Vagrantfile.
+Da man für Samba die User bestimmen muss, welche Zugriff haben, brauch man dann auch ein Passwort für sie zu setzen. Das macht man mit smbpasswd und das Passwort sollte dann zwei Mal eingeben werden, was eher schwierig zu realisieren ist mit ein Vagrantfile.
 
 ![Image](images/smbpasswd.png)
 
