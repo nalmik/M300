@@ -10,7 +10,9 @@ Samba einzurichten ist eigentlich nicht schwer. Ich bin dabei jedoch auf folgend
 
 ### Sicherheitsaspekte
 Damit der Server nicht leicht angreifbar ist, habe ich mit ufw (Uncomplicated Firewall) einige Regeln hinzufügt.
-Da ich bei meiner Lösung kein Port Forwarding sondern bridged und eine Statische IP definiert habe, braucht man da zusätzlich eine Regel.
+Da ich bei meiner Lösung kein Port Forwarding sondern bridged und eine Statische IP definiert habe, braucht man da zusätzlich eine Regel. Folgend sieht man was ich alles gesetzt habe.
+
+![Image](images/ufw.JPG)
 
 ### Troubleshooting
 #### smbpasswd
@@ -22,23 +24,27 @@ Da man für Samba die User bestimmen muss, welche Zugriff haben, brauch damm man
 
 ![Image](images/smbpasswd.png)
 
+
 Ich hatte zuerst versucht ein Passwort File zu benutzen und so das Passwort zu setzen, dies war leider nicht erfolgreich.
 Schlussendlich passte ich mein Share so an, damit Gast User Zugriff haben und die Authentifizierung somit wegfällt.
 ![Image](images/share_guest.JPG)
 
+
+Schlussendlich passte ich mein Share so an, damit Gast User Zugriff haben und die Authentifizierung somit wegfällt.
 Das heisst ich muss die Berechtigung des Ordners, der geteilt wird, anpassen damit jeder Zugriff dort hat.
 
 #### Zugriff zum Share
 Das zweite Problem, welches ich auch nicht lösen konnte, ist der Zugriff selber zum Share.
 
 Zuerst hatte ich Port Forwarding benutzt, als das nicht ging wurde mir der Tipp gegeben es mit bridge zu versuchen.
-Dieser Versuch war leider auch nicht erfolgreich.
-Als nächstes sah ich auf einer Webseite, dass wenn man mehrere Netzwerkadapter hat, es beim smb.conf definieren kann wo der Zugriff überhaupt stattfindet und auch wer darauf überall Zugriff hat.
-
+Dieser Versuch war leider auch nicht erfolgreich. Als nächstes sah ich auf einer Webseite, dass wenn man mehrere Netzwerkadapter hat, es beim smb.conf definieren kann wo der Zugriff überhaupt stattfindet und auch wer darauf überall Zugriff hat.
 
 ![Image](images/share_access.JPG)
 
 In der Firewall erstellte ich zum Schluss Regeln, welche Zugriff auf den Ports 139 und 445 zulässt.
+
+
+
 
 ---
 Quellen:
