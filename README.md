@@ -1,4 +1,10 @@
 # M300
+
+## Inhaltsverzeichnis
+
+ * [LB1][5]
+ * [LB2][6]
+
 ## LB1
 Für die LB1 musste man ein Service auswählen und das Vagrantfile so anpassen, dass man mit vagrant up den laufenden Dienst hat.
 Ich wählte dafür den Samba als Dienst, damit kann man über verschiedene OS auf dem Share Zugreifen.
@@ -56,12 +62,12 @@ Für das nächste Mal hätte ich vielleicht mehr Zeit investieren können im Tro
 
 Was ich aus dieser LB mitnehmen konnte ist insgesamt recht vieles, denn das ist mein erstes Mal mit Vagrant zu arbeiten und Markdown zu benutzen.
 
----
-Quellen:
 
-* [Guide zum Aufsetzten][1]
-* [Mehr Infos: Samba Server Configuration - Simple][2]
-* [Vagrant: public_network][4]
+>Quellen:
+>
+>* [Guide zum Aufsetzten][1]
+>* [Mehr Infos: Samba Server Configuration - Simple][2]
+>* [Vagrant: public_network][4]
 
 
 
@@ -72,3 +78,24 @@ Quellen:
 [3]: https://github.com/nalmik/M300/blob/master/files/Vagrantfile
 
 [4]: https://www.vagrantup.com/docs/networking/public_network.html
+
+***
+
+## LB2
+> Note:   
+> Docker Toolbox und VirtualBox Version 5.2 wurden hier verwendet  
+
+MPD
+MPD steht für Music Player Daemon und wie der Name es schon sagt ist es 
+
+Icecast
+
+
+YMPD
+Dies ist ein WebGui mit dem man auf MPD zugreifen kann.
+
+### Troubleshooting
+
+
+[5]: https://github.com/nalmik/M300#lb1
+[6]: https://github.com/nalmik/M300#lb2

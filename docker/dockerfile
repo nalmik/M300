@@ -1,0 +1,11 @@
+# Dockerfile for mpd
+
+FROM alpine
+MAINTAINER kev <noreply@easypi.pro>
+
+COPY mpd.conf /etc/mpd.conf
+COPY ./music/ /var/lib/mpd/music/
+VOLUME /var/lib/mpd
+
+EXPOSE 6600
+CMD ["mpd", "--stdout", "--no-daemon"]

@@ -1,0 +1,34 @@
+version: '2'
+services:
+  icecast:
+    image: vitiman/alpine-icecast:latest
+    hostname: "icecast"
+    ports:
+      - "8081:8000"
+    container_name: icecast
+    restart: always
+
+  mpd:
+  # build: 
+  #  context: .
+  #    dockerfile: dockerfile
+    image: vitiman/alpine-mpd:latest
+    ports:
+      - "8089:6600"
+      - "8082:8000"
+    container_name: mpd
+    hostname: "mpd"
+    depends_on:
+      - icecast
+    volumes:
+      - ./music:/var/lib/mpd/music
+      - ./playlist:/var/lib/mpd/playlists
+
+  ympd:
+    image: vitiman/alpine-ympd:latest
+    hostname: "ympd"
+    ports:
+      - "8080:8080"
+    container_name: ympd
+    depends_on:
+      - mpd
