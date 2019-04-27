@@ -9,9 +9,9 @@ services:
     restart: always
 
   mpd:
-  # build: 
-  #  context: .
-  #    dockerfile: dockerfile
+#    build: 
+#     context: .
+#     dockerfile: dockerfile
     image: vitiman/alpine-mpd:latest
     ports:
       - "8089:6600"
@@ -21,8 +21,8 @@ services:
     depends_on:
       - icecast
     volumes:
-      - ./music:/var/lib/mpd/music
-      - ./playlist:/var/lib/mpd/playlists
+      - ./music/:/var/lib/mpd/music
+      - ./playlist/:/var/lib/mpd/playlists
 
   ympd:
     image: vitiman/alpine-ympd:latest

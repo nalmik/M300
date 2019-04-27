@@ -1,9 +1,15 @@
 # Dockerfile for mpd
 
-FROM alpine
-MAINTAINER kev <noreply@easypi.pro>
+FROM ubuntu:18.04
 
-COPY mpd.conf /etc/mpd.conf
+RUN apt-get -y update
+RUN apt-get install -y mpd mpc
+RUN /etc/init.d/mpd stop
+# RUN killall -9 pulseaudio
+RUN /etc/init.d/mpd stop
+
+
+COPY ./mpd.conf /etc/mpd.conf
 COPY ./music/ /var/lib/mpd/music/
 VOLUME /var/lib/mpd
 
